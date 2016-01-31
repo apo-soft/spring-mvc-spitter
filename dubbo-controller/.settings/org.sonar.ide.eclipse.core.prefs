@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.jdbc.password\=sonar\r\nsonar.host.url\=http\://localhost\:9000\r\nsonar.jdbc.username\=sonar\r\nsonar.jdbc.url\=jdbc\:oracle\:thin\:@localhost\:1521/orcl
+projectKey=cn.aposoft.tutorials\:dubbo-controller
+serverUrl=http\://localhost\:9000
+version=2

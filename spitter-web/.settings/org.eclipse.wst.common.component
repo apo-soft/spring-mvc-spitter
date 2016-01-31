@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="spitter-web">
+        <dependent-module archiveName="spring-dubbo-demo-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring-dubbo-demo-service/spring-dubbo-demo-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-dubbo-demo-intf-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring-dubbo-demo-intf/spring-dubbo-demo-intf">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spitter-controller-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-controller/spitter-controller">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spitter-service-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-service-common/spitter-service-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spitter-domain-plain-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-domain-plain/spitter-domain-plain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spitter-service-declarative-tx-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-service-declarative-tx/spitter-service-declarative-tx">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spitter-persistence-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-persistence-common/spitter-persistence-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spitter-persistence-demo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-persistence-demo/spitter-persistence-demo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+		<property name="java-output-path" value="/spitter-web/target/classes"/>
+        <property name="context-root" value="/"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+		<wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+		<wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+	</wb-module>
+</project-modules>
