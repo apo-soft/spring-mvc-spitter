@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import com.habuma.spitter.domain.Spitter;
@@ -23,7 +23,12 @@ public class SimpleJdbcSupportSpitterDao extends JdbcDaoSupport implements Spitt
 
 	// <start id="java_getSpitterById" />
 	public Spitter getSpitterById(long id) {
-		return getJdbcTemplate().queryForObject(SQL_SELECT_SPITTER_BY_ID, new ParameterizedRowMapper<Spitter>() {
+		Object[] obja = new Object[1];
+		obja[0] = id;
+		/**
+		 * Spring 2.5, 3.x 使用
+		 */
+		RowMapper<Spitter> mapper = new RowMapper<Spitter>() {
 			public Spitter mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Spitter spitter = new Spitter();
 				spitter.setId(rs.getLong(1));
@@ -33,7 +38,9 @@ public class SimpleJdbcSupportSpitterDao extends JdbcDaoSupport implements Spitt
 				spitter.setEmail(rs.getString(5));
 				return spitter;
 			}
-		}, id);
+		};
+
+		return getJdbcTemplate().queryForObject(SQL_SELECT_SPITTER_BY_ID, obja, mapper);
 	}
 	// <end id="java_getSpitterById" />
 
@@ -49,7 +56,7 @@ public class SimpleJdbcSupportSpitterDao extends JdbcDaoSupport implements Spitt
 		getJdbcTemplate().update(SQL_UPDATE_SPITTER, spitter.getUsername(), spitter.getPassword(),
 				spitter.getFullName(), spitter.getEmail(),
 
-		spitter.getId());
+				spitter.getId());
 	}
 
 	// <start id="java_queryForIdentity" />

@@ -21,7 +21,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.group>org.springframework</spring.group>
-		<spring.version>3.2.15.RELEASE</spring.version>
+		<spring.version>4.2.4.RELEASE</spring.version>
+		<!-- <spring.version>3.2.16.RELEASE</spring.version> -->
 		<javax.inject.version>1</javax.inject.version>
 		<org.mockito.version>1.9.5</org.mockito.version>
 		<org.aspectj.version>1.8.6</org.aspectj.version>
@@ -50,6 +51,8 @@
 		<module>spring-dubbo-demo-service</module>
 		<module>spring-dubbo-demo-client</module>
 		<module>dubbo-controller</module>
+		<module>spitter-web-service-1</module>
+		<module>spitter-httl-web-client</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>

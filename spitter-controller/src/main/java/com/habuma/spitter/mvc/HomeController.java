@@ -21,7 +21,6 @@ public class HomeController {
 
 	@RequestMapping("/home")
 	public String showHomePage(Map<String, Object> model) {
-		System.out.println("home--controller");
 		model.put("spittles", spitterService.getRecentSpittles(spittlesPerPage));
 		return "home";
 	}

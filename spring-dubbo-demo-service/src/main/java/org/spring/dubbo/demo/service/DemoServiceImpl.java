@@ -38,6 +38,9 @@ public class DemoServiceImpl implements DemoService {
 	 */
 	@Override
 	public String callPerson(Person p) {
+		if (p == null) {
+			return "No person is called, response form provider: " + RpcContext.getContext().getLocalAddress();
+		}
 		System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Hello " + p.getName() + ","
 				+ p.getAge() + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
 		return "Hello " + p.getName() + ", response form provider: " + RpcContext.getContext().getLocalAddress();

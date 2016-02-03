@@ -15,8 +15,6 @@
 	<dubbo:application name="spring-dubbo-demo-client" />
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
 	<dubbo:registry address="zookeeper://192.168.63.131:12181" />
-
 	<dubbo:reference id="demoService"
 		interface="org.spring.dubbo.demo.intf.DemoService" />
-
 </beans>

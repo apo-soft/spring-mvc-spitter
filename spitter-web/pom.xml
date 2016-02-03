@@ -95,6 +95,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>/</finalName>
+		<finalName>s2</finalName>
 	</build>
 </project>
