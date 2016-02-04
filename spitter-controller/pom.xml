@@ -27,13 +27,10 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spitter-service-common</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>spitter-service-declarative-tx</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>spitter-persistence-demo</artifactId>
+			<artifactId>spitter-persistence-common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

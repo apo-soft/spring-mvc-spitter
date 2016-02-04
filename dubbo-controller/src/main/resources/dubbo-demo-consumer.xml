@@ -32,4 +32,6 @@
 	<dubbo:application name="${dubbo.application.name}" />
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
 	<dubbo:registry address="${dubbo.register.address}" />
+	<!-- 另一种使用zookeeper注册的方法 -->
+	<!-- <dubbo:registry protocol="zookeeper" address="10.20.153.10:2181,10.20.153.11:2181,10.20.153.12:2181" /> -->
 </beans>

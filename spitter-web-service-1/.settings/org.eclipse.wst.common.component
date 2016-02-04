@@ -13,6 +13,9 @@
         <dependent-module archiveName="spitter-controller-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-controller/spitter-controller">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="spitter-persistence-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-persistence-common/spitter-persistence-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="spitter-service-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-service-common/spitter-service-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -20,9 +23,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="spitter-service-declarative-tx-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-service-declarative-tx/spitter-service-declarative-tx">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="spitter-persistence-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-persistence-common/spitter-persistence-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="spitter-persistence-demo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spitter-persistence-demo/spitter-persistence-demo">
