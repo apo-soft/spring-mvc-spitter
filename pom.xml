@@ -31,10 +31,19 @@
 		<zookeeper.version>3.3.3</zookeeper.version>
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.7.13</slf4j.version>
+		<dbcp.version>1.4</dbcp.version>
 	</properties>
 
 	<build>
-
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>8.1.16.v20140903</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 	<packaging>pom</packaging>
 	<modules>
@@ -53,9 +62,36 @@
 		<module>dubbo-controller</module>
 		<module>spitter-web-service-1</module>
 		<module>spitter-httl-web-client</module>
+		<module>spring-mvc-hello</module>
+		<module>spitter-persistence-mybatis</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>${dbcp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.miemiedev</groupId>
+				<artifactId>mybatis-paginator</artifactId>
+				<version>1.2.15</version>
+			</dependency>
+			<dependency>
+				<groupId>com.oracle.ojdbc</groupId>
+				<artifactId>ojdbc6</artifactId>
+				<version>11.2.0.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.3.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>1.2.3</version>
+			</dependency>
 			<dependency>
 				<groupId>com.101tec</groupId>
 				<artifactId>zkclient</artifactId>
@@ -109,6 +145,11 @@
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjweaver</artifactId>
+				<version>${org.aspectj.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjrt</artifactId>
 				<version>${org.aspectj.version}</version>
 			</dependency>
 			<dependency>
@@ -193,6 +234,16 @@
 			</dependency>
 			<!-- JavaEE Servlet Dependencies -->
 			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-servlet-api</artifactId>
+				<version>7.0.67</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-jsp-api</artifactId>
+				<version>7.0.67</version>
+			</dependency>
+			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.1.0</version>
@@ -216,6 +267,11 @@
 				<groupId>javax.servlet.jsp.jstl</groupId>
 				<artifactId>javax.servlet.jsp.jstl-api</artifactId>
 				<version>1.2.1</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.4</version>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>

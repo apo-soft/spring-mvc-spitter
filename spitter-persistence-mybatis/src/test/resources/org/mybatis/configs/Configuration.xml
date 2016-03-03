@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 优先级, 函数调用时,作为参数传入的内容 > 外部文件中的内容 > property定义的内容 -->
+	<properties resource="org/mybatis/configs/config.properties">
+		<property name="username" value="scott" />
+		<property name="password" value="tiger z" />
+	</properties>
+
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="false" />
+		<!-- <setting name="enhancementEnabled" value="false" /> -->
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<setting name="defaultStatementTimeout" value="25000" />
+	</settings>
+	<!-- <typeAliases> <typeAlias alias="Author" type="domain.blog.Author" /> 
+		<typeAlias alias="Blog" type="domain.blog.Blog" /> <typeAlias alias="Comment" 
+		type="domain.blog.Comment" /> <typeAlias alias="Post" type="domain.blog.Post" 
+		/> <typeAlias alias="Section" type="domain.blog.Section" /> <typeAlias alias="Tag" 
+		type="domain.blog.Tag" /> </typeAliases> -->
+	<!-- handlers 可以替换默认的类型处理器,这里不是必须配置的 -->
+	<!-- <typeHandlers> <typeHandler javaType="String" jdbcType="VARCHAR" handler="org.mybatis.example.ExampleTypeHandler" 
+		/> </typeHandlers> -->
+	<!-- 对象工厂,定制化仅返回默认的Default的结果 -->
+	<!-- <objectFactory type="org.mybatis.example.ExampleObjectFactory"> <property 
+		name="someProperty" value="100" /> </objectFactory> -->
+	<!-- 影响到mybatis底层实现的插件,慎重使用,必须清晰了解mybatis的底层实现 -->
+	<!--<plugins> <plugin interceptor="org.mybatis.example.ExamplePlugin"> <property 
+		name="someProperty" value="100" /> </plugin> </plugins> -->
+	<environments default="development">
+		<environment id="development">
+			<!-- JDBC – 这个配置直接简单使用了JDBC的提交和回滚设置。它依赖于从数据源得到的连接来管理事务范围。 -->
+			<transactionManager type="JDBC">
+			</transactionManager>
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+		<environment id="spring">
+			<!-- MANAGED – 这个配置几乎没做什么。它从来不提交或回滚一个连接。 -->
+			<!-- 而它会让容器来管理事务的整个生命周期 （比如Spring或JEE应用服务器的上下文）。 -->
+			<!-- 默认情况下它会关闭连接。然而一些容器并不希望这样，因此如果你需要从连接中停止它，将closeConnection属性设置为false。 -->
+			<transactionManager type="MANAGED">
+				<property name="closeConnection" value="false" />
+			</transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="org/mybatis/example/DeptMapper.xml" />
+	</mappers>
+</configuration>

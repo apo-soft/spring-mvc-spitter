@@ -24,7 +24,6 @@
 		<dependency>
 			<groupId>cn.aposoft.tutorials</groupId>
 			<artifactId>spring-dubbo-demo-intf</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.101tec</groupId>

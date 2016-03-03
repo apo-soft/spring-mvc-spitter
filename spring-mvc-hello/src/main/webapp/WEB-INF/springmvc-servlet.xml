@@ -11,12 +11,16 @@
 	<!-- @RequestMapping注解驱动的请求映射到控制器 -->
 	<mvc:annotation-driven />
 	<!-- 过滤静态资源 -->
-	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<!-- <mvc:resources location="/resources/" mapping="/resources/**" /> -->
 	<mvc:resources mapping="/index.html" location="/" />
+	<mvc:resources mapping="/index.jsp" location="/index.jsp" />
+	<mvc:resources mapping="/index.html" location="/index.html" />
 	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
 	<!-- component scan regions -->
-	<context:component-scan base-package="org.spring.dubbo.demo.client" />
-
+	<context:component-scan base-package="com.bolo">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- by default it is not jstlView -->
