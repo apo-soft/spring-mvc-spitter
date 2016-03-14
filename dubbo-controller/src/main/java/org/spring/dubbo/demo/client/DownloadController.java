@@ -37,7 +37,7 @@ public class DownloadController {
 	/**
 	 * 解决PathVariable 遇到.隔断的方案: 1. 在后面加反斜线/ 证明可以解决问题 2. {filename:.+}使用正则表达式
 	 */
-	@RequestMapping("/download/{filename:.+}")
+	@RequestMapping("/download/{filename:[^/]+}")
 	public void download(@PathVariable("filename") String fileName, HttpServletRequest request,
 			HttpServletResponse response) {
 		logger.info(fileName);
