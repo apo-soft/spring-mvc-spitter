@@ -23,6 +23,7 @@
 		<spring.group>org.springframework</spring.group>
 		<spring.version>4.2.5.RELEASE</spring.version>
 		<!-- <spring.version>3.2.16.RELEASE</spring.version> -->
+		<spring.security.version>4.0.4.RELEASE</spring.security.version>
 		<javax.inject.version>1</javax.inject.version>
 		<org.mockito.version>1.9.5</org.mockito.version>
 		<org.aspectj.version>1.8.6</org.aspectj.version>
@@ -64,9 +65,11 @@
 		<module>spitter-httl-web-client</module>
 		<module>spring-mvc-hello</module>
 		<module>spitter-persistence-mybatis</module>
+		<module>spring-security-study</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
+
 			<dependency>
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
@@ -207,6 +210,17 @@
 				<artifactId>spitter-persistence-jdbc-dao-support</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
+				<version>4.0.4.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>4.0.4.RELEASE</version>
+			</dependency>
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
@@ -232,6 +246,22 @@
 				<artifactId>spring-tx</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<!-- spring security -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-taglibs</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
 			<!-- JavaEE Servlet Dependencies -->
 			<dependency>
 				<groupId>org.apache.tomcat</groupId>
@@ -253,6 +283,7 @@
 				<artifactId>jstl-api</artifactId>
 				<version>1.2</version>
 			</dependency>
+
 			<dependency>
 				<groupId>jstl</groupId>
 				<artifactId>jstl</artifactId>

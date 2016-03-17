@@ -5,7 +5,10 @@ package org.spring.dubbo.demo.client;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.spring.dubbo.demo.intf.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class DubboController {
+	AtomicLong longSeq = new AtomicLong(0);
+	private static final Logger logger = LoggerFactory.getLogger(DubboController.class);
 
 	public DubboController() {
 	}
@@ -26,10 +31,14 @@ public class DubboController {
 	@Autowired
 	private DemoClient demoClient;
 
-	@RequestMapping("/hello")
+	@RequestMapping(value = "/hello", produces = "text/plain; charset=utf-8")
 	@ResponseBody
 	public String showDubboText(String name) {
-		return demoClient.sayHello(name);
+		long seq = longSeq.incrementAndGet();
+		logger.info("seq:" + seq + " " + name);
+		String resp = demoClient.sayHello(name);
+		logger.info("seq:" + seq + " " + resp);
+		return resp;
 	}
 
 	@RequestMapping("/person")
