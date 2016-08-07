@@ -31,11 +31,32 @@
 		<zkclient.version>0.6</zkclient.version>
 		<zookeeper.version>3.3.3</zookeeper.version>
 		<log4j.version>1.2.17</log4j.version>
-		<slf4j.version>1.7.13</slf4j.version>
+		<slf4j.version>1.7.21</slf4j.version>
 		<dbcp.version>1.4</dbcp.version>
+		<tomcat.version>7.0.70</tomcat.version>
 	</properties>
 
 	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<!-- 针对Servlet 3.x关闭对web.xml文件的检测 -->
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -69,7 +90,11 @@
 	</modules>
 	<dependencyManagement>
 		<dependencies>
-
+			<dependency>
+				<groupId>org.apache.tomcat</groupId>
+				<artifactId>tomcat-servlet-api</artifactId>
+				<version>${tomcat.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
@@ -211,16 +236,8 @@
 				<version>${project.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-web</artifactId>
-				<version>4.0.4.RELEASE</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-config</artifactId>
-				<version>4.0.4.RELEASE</version>
-			</dependency>
+
+
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
@@ -321,8 +338,8 @@
 			</dependency>
 			<dependency>
 				<groupId>org.easymock</groupId>
-				<artifactId>com.springsource.org.easymock</artifactId>
-				<version>2.5.2</version>
+				<artifactId>easymock</artifactId>
+				<version>3.4</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
